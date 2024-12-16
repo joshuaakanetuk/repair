@@ -9,6 +9,7 @@ app.use(express.json());
 // POST route
 app.post('/api/data', async (req, res) => {
     const { name, age } = req.body; // Extract data from the request body
+    console.log(req.body)
 
     const pdfBytes = await fetch(process.env.TEMPLATE_PDF);
 
