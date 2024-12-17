@@ -56,7 +56,7 @@ app.post('/api/data', async (req, res) => {
         subject: "First Look at Auto Generated PDFs",
         attachments: [
             {
-                conzent: (Buffer.from(modifiedPdfBytes)),
+                content: (Buffer.from(modifiedPdfBytes)),
                 filename: new Date().toISOString() + ".pdf",
                 type: "application/pdf",
                 disposition: "attachment",
