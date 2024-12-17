@@ -45,7 +45,7 @@ app.post('/api/data', async (req, res) => {
         const type = field.constructor.name;
         const name = field.getName();
         console.log(`Filling field: ${RENDER_VARIS[index]}`);
-        form.getTextField(name).setText((RENDER_VARIS[index]));
+        form.getTextField(name).setText(String(RENDER_VARIS[index]));
     });
 
     const modifiedPdfBytes = await pdfDoc.save();
