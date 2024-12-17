@@ -70,9 +70,11 @@ app.post('/api/data', async (req, res) => {
     }
     catch (e) {
         console.log(e)
+        res.status(400).send({
+            message: 'This is an error!'
+         });
     }
-
-    // res.send(modifiedPdfBytes);
+    res.send("Success");
 });
 
 // Start the server
