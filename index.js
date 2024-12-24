@@ -23,7 +23,7 @@ app.use(express.json());
 // POST route
 app.post('/api/data', async (req, res) => {
     const { clientName, clientTotal, clientEmail, clientNumber, agentName, dateCreated, dateSent, dateContacted, deviceBrand, deviceModel, deviceAge, deviceSerialNumber, deviceIssue, clientEstimate, estimateLink, sendToEmails } = req.body; // Extract data from the request body
-    const RENDER_VARIS = [clientName, clientTotal, clientEmail, clientNumber, agentName, dateCreated, dateSent, dateContacted, deviceBrand, deviceModel, deviceAge, deviceSerialNumber, deviceIssue, clientEstimate, estimateLink, sendToEmails ];
+    const RENDER_VARIS = [clientName, clientTotal, clientEmail, clientNumber, agentName, dateCreated, dateSent, dateContacted, deviceBrand, deviceModel + deviceAge, deviceSerialNumber, deviceIssue, clientEstimate, estimateLink, sendToEmails ];
 
     const pdfBytes = await fetch(process.env.TEMPLATE_PDF);
 
@@ -45,6 +45,7 @@ app.post('/api/data', async (req, res) => {
         const type = field.constructor.name;
         const name = field.getName();
         console.log(`Filling field: ${RENDER_VARIS[index]}`);
+        form.getTextField(name).setFontSize(4)
         form.getTextField(name).setText(String(RENDER_VARIS[index]));
     });
 
