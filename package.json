@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bwip-js": "^4.5.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "install": "^0.13.0",
