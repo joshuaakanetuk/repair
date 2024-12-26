@@ -41,7 +41,7 @@ app.post('/api/data', async (req, res) => {
 
     const barcodeData = await bwipjs.toBuffer({
         bcid: 'qrcode',
-        text: estimateLink && "default",
+        text: estimateLink,
         scale: 3,
         includetext: false,
     });
