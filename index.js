@@ -44,6 +44,8 @@ app.post('/api/data', async (req, res) => {
         text: estimateLink,
         scale: 3,
         includetext: false,
+        width: 100,
+        height: 100
     });
 
     const pdfBytes = await fetch(process.env.TEMPLATE_PDF);
