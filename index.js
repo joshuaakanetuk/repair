@@ -71,8 +71,8 @@ app.post('/api/data', async (req, res) => {
     page.drawImage(barcodeImage, {
         x: 490, // X-coordinate for placement
         y: h - 740, // Y-coordinate for placement
-        width: barcodeDims.width,
-        height: barcodeDims.height,
+        width: 100,
+        height: 100,
     });
 
     // Basic Info
@@ -92,10 +92,10 @@ app.post('/api/data', async (req, res) => {
     // Device Information
     // Ln 1
     page.drawText(deviceBrand, { x: 25, y: h - 355, size: 14 })
-    page.drawText(`${deviceModel}, ${deviceAge} years old.`, { x: 280, y: h - 355, size: 14 })
+    page.drawText(`${deviceModel}, ${deviceAge} old.`, { x: 280, y: h - 355, size: 14 })
 
     // Ln 2
-    page.drawText(deviceSerialNumber, { x: 25, y: h - 400, size: 14 })
+    page.drawText(deviceSerialNumber, { x: 25, y: h - 405, size: 14 })
 
     // Issue
     page.drawText(deviceIssue, { x: 25, y: h - 480, size: 14 })
@@ -115,7 +115,7 @@ app.post('/api/data', async (req, res) => {
     // });
 
     const modifiedPdfBytes = await pdfDoc.save();
-
+    
     const mailOptions = {
         from: process.env.USER,
         to: sendToEmails,
@@ -132,6 +132,7 @@ app.post('/api/data', async (req, res) => {
 
 
     try {
+        // await fs.writeFileSync('pdf.pdf', modifiedPdfBytes);
         await transporter.sendMail(mailOptions);
     }
     catch (e) {
