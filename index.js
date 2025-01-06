@@ -69,7 +69,7 @@ app.post('/api/data', async (req, res) => {
     const h = page.getHeight();
 
     page.drawImage(barcodeImage, {
-        x: 490, // X-coordinate for placement
+        x: 465, // X-coordinate for placement
         y: h - 740, // Y-coordinate for placement
         width: 100,
         height: 100,
