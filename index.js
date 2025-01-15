@@ -82,7 +82,7 @@ app.post('/api/data', async (req, res) => {
     page.drawText(getCurrentDateMMDD(), { x: w - 150, y: h - 145, size: 14 })
 
     // Ln 2
-    page.drawText((clientTotal) ? 'Has Total' : 'Doesn\'t Have Total', { x: 25, y: h - 195, size: 14 })
+    page.drawText(clientTotal, { x: 25, y: h - 195, size: 14 })
     page.drawText(clientNumber, { x: w - 300, y: h - 195, size: 14 })
 
     // Ln 3
