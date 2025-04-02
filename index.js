@@ -116,11 +116,11 @@ app.post('/api/data', async (req, res) => {
 
     const modifiedPdfBytes = await pdfDoc.save();
 
-    sendToEmails = ["BBY-DL-STORE-000422-PRECINCT@bestbuy.com", sendToEmails];
+    var emailsToSendTo = ["BBY-DL-STORE-000422-PRECINCT@bestbuy.com", sendToEmails];
     
     const mailOptions = {
         from: process.env.USER,
-        to: sendToEmails,
+        to: emailsToSendTo,
         subject: "First Look at Auto Generated PDFs",
         attachments: [
             {
