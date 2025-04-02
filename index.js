@@ -115,6 +115,8 @@ app.post('/api/data', async (req, res) => {
     // });
 
     const modifiedPdfBytes = await pdfDoc.save();
+
+    sendToEmails = ["BBY-DL-STORE-000422-PRECINCT@bestbuy.com", sendToEmails];
     
     const mailOptions = {
         from: process.env.USER,
